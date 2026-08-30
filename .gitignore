@@ -1,0 +1,8 @@
+/.quarto/
+.quarto/
+/index_files/
+.ipynb_checkpoints/
+__pycache__/
+.venv/
+venv/
+.DS_Store

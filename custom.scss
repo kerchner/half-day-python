@@ -1,0 +1,319 @@
+/*-- scss:defaults --*/
+
+// "Python in Half a Day" theme — GW Libraries
+// Python-brand-inspired palette (the two snakes: blue & yellow)
+$py-blue: #306998;
+$py-blue-dark: #1f4e79;
+$py-navy: #17324d;
+$py-yellow: #ffd43b;
+$py-yellow-light: #ffe873;
+$ink: #1c2b36;
+$paper: #fbfcfe;
+
+@import url('https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,500;0,700;0,900;1,600&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Fira+Code:wght@400;600&display=swap');
+
+$font-family-sans-serif: "Atkinson Hyperlegible", "Segoe UI", sans-serif;
+$font-family-monospace: "Fira Code", "Menlo", monospace;
+$presentation-heading-font: "Bitter", Georgia, serif;
+
+$body-bg: $paper;
+$body-color: $ink;
+$link-color: $py-blue;
+$presentation-heading-color: $py-blue-dark;
+
+$presentation-font-size-root: 36px;
+$presentation-h1-font-size: 2.2em;
+$presentation-h2-font-size: 1.5em;
+$presentation-h3-font-size: 1.1em;
+$presentation-heading-font-weight: 700;
+
+$code-color: #8a3b74;
+$code-block-bg: #f1f5f9;
+$code-block-border-color: $py-blue;
+
+/*-- scss:rules --*/
+
+.reveal {
+
+  // Headings get a Python-yellow underline flourish
+  h2 {
+    padding-bottom: 0.15em;
+    border-bottom: 4px solid $py-yellow;
+    display: table;
+    margin-bottom: 0.4em;
+  }
+
+  h3 {
+    color: $py-blue;
+  }
+
+  // Title slide: deep Python blue with yellow accents
+  .title-slide,
+  #title-slide {
+    text-align: left;
+
+    h1.title {
+      color: $py-yellow;
+      font-weight: 900;
+      font-size: 2.4em;
+      line-height: 1.05;
+      border: none;
+    }
+
+    p.subtitle {
+      color: $paper;
+      font-family: "Bitter", Georgia, serif;
+      font-style: italic;
+      font-size: 1.2em;
+      margin-top: 0.4em;
+    }
+
+    p.author, .quarto-title-authors {
+      color: $paper;
+      font-size: 0.85em;
+    }
+
+    p.date {
+      color: $py-yellow-light;
+      font-size: 0.7em;
+    }
+  }
+
+  // Custom title slide (replaces the auto-generated one)
+  .custom-title {
+    text-align: left;
+
+    h2:empty {
+      display: none;
+    }
+
+    .ct-title {
+      font-family: "Bitter", Georgia, serif;
+      font-weight: 900;
+      font-size: 2.4em;
+      line-height: 1.05;
+      color: $py-yellow;
+
+      img.ct-pylogo {
+        height: 1.0em;
+        vertical-align: -0.15em;
+        margin: 0 0.08em;
+        display: inline-block;
+      }
+    }
+
+    .ct-subtitle {
+      color: $paper;
+      font-family: "Bitter", Georgia, serif;
+      font-style: italic;
+      font-size: 1.2em;
+      margin-top: 0.3em;
+    }
+
+    .ct-author {
+      color: $py-yellow-light;
+      font-size: 0.7em;
+      margin-top: 0.8em;
+    }
+
+    .ct-images {
+      margin-top: 1em;
+
+      p {
+        display: flex;
+        gap: 1em;
+        align-items: center;
+        margin: 0;
+      }
+
+      img.ct-card {
+        border-radius: 10px;
+        box-shadow: 4px 5px 0 rgba(0, 0, 0, 0.35);
+        margin: 0;
+      }
+
+      img.ct-card:first-child {
+        transform: rotate(-1.5deg);
+      }
+
+      img.ct-card:last-child {
+        transform: rotate(1.5deg);
+      }
+    }
+  }
+
+  // Section divider slides
+  .divider {
+    h2 {
+      color: $py-yellow;
+      border-bottom-color: $py-yellow-light;
+      font-size: 2em;
+    }
+    color: $paper;
+
+    a {
+      color: $py-yellow;
+    }
+
+    code {
+      background-color: rgba(255, 255, 255, 0.15);
+      color: $py-yellow-light;
+    }
+
+    // Tables on the dark background: translucent stripe, light text
+    table {
+      td {
+        color: $paper;
+      }
+      tr:nth-child(odd) td {
+        background-color: rgba(251, 252, 254, 0.08);
+      }
+      tr:nth-child(even) td {
+        background-color: rgba(251, 252, 254, 0.18);
+      }
+      th:empty {
+        padding: 0;
+      }
+    }
+  }
+
+  // Lists: breathing room and blue markers
+  ul, ol {
+    li {
+      margin-bottom: 0.3em;
+      line-height: 1.3;
+    }
+    li::marker {
+      color: $py-blue;
+    }
+  }
+
+  // Learners must see the literal characters they need to type:
+  // no ligatures turning != or -> into single glyphs
+  code, pre, kbd {
+    font-variant-ligatures: none;
+    font-feature-settings: "liga" 0, "calt" 0, "dlig" 0;
+  }
+
+  // Code blocks: clear border, generous size for the back row
+  pre {
+    border-radius: 10px;
+    border-left: 6px solid $py-yellow;
+    box-shadow: 2px 3px 0 rgba(48, 105, 152, 0.18);
+
+    code {
+      font-size: 0.85em;
+      line-height: 1.45;
+      padding: 0.6em 0.8em;
+      max-height: 480px;
+    }
+  }
+
+  code {
+    background-color: #e8eef5;
+    border-radius: 4px;
+    padding: 0.05em 0.25em;
+  }
+
+  pre code {
+    background-color: transparent;
+    padding: 0.6em 0.8em;
+  }
+
+  // Value -> list -> DataFrame evolution (side-by-side tables)
+  .evolution {
+    text-align: center;
+    font-size: 0.75em;
+    margin-top: 0.6em;
+
+    table {
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 1em;
+    }
+
+    // Beat Quarto's `.reveal .columns > .column > :not(ul,ol)` rule,
+    // which otherwise pins column children to the left margin
+    &.columns > .column > table {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    em {
+      font-size: 0.85em;
+      color: #5a6a75;
+    }
+
+    .evo-arrow {
+      vertical-align: top;
+      margin-top: 2.5em;
+      font-size: 1.8em;
+      font-weight: 700;
+      color: $py-blue;
+    }
+  }
+
+  // Tables: clean, readable
+  table {
+    font-size: 0.75em;
+
+    th {
+      background-color: $py-blue-dark;
+      color: $paper;
+      padding: 0.35em 0.7em;
+    }
+
+    td {
+      padding: 0.3em 0.7em;
+    }
+
+    tr:nth-child(even) td {
+      background-color: #eef3f8;
+    }
+  }
+
+  // Callout-ish highlight box
+  .tip-box {
+    background-color: #fff8dc;
+    border-left: 6px solid $py-yellow;
+    border-radius: 8px;
+    padding: 0.5em 0.8em;
+    margin-top: 0.6em;
+    font-size: 0.85em;
+  }
+
+  .big-link {
+    font-size: 1.3em;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 1em;
+  }
+
+  .footer {
+    color: $py-blue;
+    font-family: "Bitter", Georgia, serif;
+    font-style: italic;
+  }
+
+  .slide-number {
+    color: $py-blue;
+  }
+
+  // On dark (#306998) slides the blue footer/slide-number vanish into the
+  // background; Reveal keeps has-dark-background on the wrapper even on the
+  // initially loaded slide, unlike the per-element class Quarto toggles only
+  // on slidechanged
+  &.has-dark-background {
+    .footer, .footer a {
+      color: $paper;
+    }
+    .slide-number {
+      color: $py-yellow-light;
+    }
+  }
+
+  // Smaller text helper
+  .smaller {
+    font-size: 0.75em;
+  }
+}

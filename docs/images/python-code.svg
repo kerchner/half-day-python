@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 470 300" width="470" height="300" font-family="Fira Code, Menlo, Consolas, monospace" font-size="13">
+  <rect width="470" height="300" rx="10" fill="#1e2a38"/>
+  <rect width="470" height="26" rx="10" fill="#2b3a4d"/>
+  <rect y="14" width="470" height="12" fill="#2b3a4d"/>
+  <circle cx="16" cy="13" r="5" fill="#ff5f57"/>
+  <circle cx="32" cy="13" r="5" fill="#febc2e"/>
+  <circle cx="48" cy="13" r="5" fill="#28c840"/>
+  <text x="235" y="17" fill="#9fb3c8" font-size="11" text-anchor="middle">surveys.py</text>
+  <g fill="#e6edf3">
+    <text x="16" y="52"><tspan fill="#c792ea">import</tspan> pandas <tspan fill="#c792ea">as</tspan> pd</text>
+    <text x="16" y="72"><tspan fill="#c792ea">from</tspan> plotnine <tspan fill="#c792ea">import</tspan> *</text>
+    <text x="16" y="104">surveys = pd.<tspan fill="#82aaff">read_csv</tspan>(<tspan fill="#c3e88d">"data/surveys.csv"</tspan>)</text>
+    <text x="16" y="124">species = pd.<tspan fill="#82aaff">read_csv</tspan>(<tspan fill="#c3e88d">"data/species.csv"</tspan>)</text>
+    <text x="16" y="156"><tspan fill="#546e7a"># Keep the six most-observed species</tspan></text>
+    <text x="16" y="176">top = surveys.species_id.<tspan fill="#82aaff">value_counts</tspan>()[:<tspan fill="#f78c6c">6</tspan>].keys()</text>
+    <text x="16" y="196">subset = surveys[surveys.species_id.<tspan fill="#82aaff">isin</tspan>(top)]</text>
+    <text x="16" y="228">(<tspan fill="#82aaff">ggplot</tspan>(subset)</text>
+    <text x="16" y="248">   + <tspan fill="#82aaff">aes</tspan>(x=<tspan fill="#c3e88d">"weight"</tspan>, y=<tspan fill="#c3e88d">"hindfoot_length"</tspan>,</text>
+    <text x="16" y="268">         color=<tspan fill="#c3e88d">"species_id"</tspan>)</text>
+    <text x="16" y="288">   + <tspan fill="#82aaff">geom_point</tspan>(alpha=<tspan fill="#f78c6c">0.4</tspan>))</text>
+  </g>
+</svg>

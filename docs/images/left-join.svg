@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-label="Diagram of left_join: all rows of table x are kept; matching rows of y are added; unmatched keys get NA">
+  <style>
+    .lbl  { font: italic 700 18px "Atkinson Hyperlegible", "Segoe UI", sans-serif; fill: #033c5a; }
+    .hdr  { font: 700 15px "Atkinson Hyperlegible", "Segoe UI", sans-serif; fill: #fdfbf5; }
+    .cell { font: 15px "Atkinson Hyperlegible", "Segoe UI", sans-serif; fill: #1c2b36; }
+    .drop { font: 15px "Atkinson Hyperlegible", "Segoe UI", sans-serif; fill: #9aa4ab; }
+    .na   { font: italic 700 15px "Atkinson Hyperlegible", "Segoe UI", sans-serif; fill: #7a5d00; }
+    .code { font: 600 15px "Fira Code", Menlo, monospace; fill: #033c5a; }
+    .note { font: italic 13px "Atkinson Hyperlegible", "Segoe UI", sans-serif; fill: #5a6a75; }
+    .h    { fill: #033c5a; stroke: #a69362; }
+    .c    { fill: #ffffff; stroke: #a69362; }
+    .k    { fill: #eaf3f8; stroke: #a69362; }
+    .g    { fill: #f2f2ee; stroke: #c4bda9; }
+    .y    { fill: #ffedb3; stroke: #a69362; }
+  </style>
+
+  <!-- table x -->
+  <text class="lbl" x="90" y="30" text-anchor="middle">x</text>
+  <rect class="h" x="20"  y="40" width="70" height="34"/><text class="hdr" x="55"  y="62" text-anchor="middle">key</text>
+  <rect class="h" x="90"  y="40" width="70" height="34"/><text class="hdr" x="125" y="62" text-anchor="middle">val_x</text>
+  <rect class="k" x="20"  y="74" width="70" height="34"/><text class="cell" x="55"  y="96" text-anchor="middle">1</text>
+  <rect class="c" x="90"  y="74" width="70" height="34"/><text class="cell" x="125" y="96" text-anchor="middle">a</text>
+  <rect class="k" x="20"  y="108" width="70" height="34"/><text class="cell" x="55"  y="130" text-anchor="middle">2</text>
+  <rect class="c" x="90"  y="108" width="70" height="34"/><text class="cell" x="125" y="130" text-anchor="middle">b</text>
+  <rect class="k" x="20"  y="142" width="70" height="34"/><text class="cell" x="55"  y="164" text-anchor="middle">3</text>
+  <rect class="c" x="90"  y="142" width="70" height="34"/><text class="cell" x="125" y="164" text-anchor="middle">c</text>
+
+  <!-- table y -->
+  <text class="lbl" x="90" y="240" text-anchor="middle">y</text>
+  <rect class="h" x="20"  y="250" width="70" height="34"/><text class="hdr" x="55"  y="272" text-anchor="middle">key</text>
+  <rect class="h" x="90"  y="250" width="70" height="34"/><text class="hdr" x="125" y="272" text-anchor="middle">val_y</text>
+  <rect class="k" x="20"  y="284" width="70" height="34"/><text class="cell" x="55"  y="306" text-anchor="middle">1</text>
+  <rect class="c" x="90"  y="284" width="70" height="34"/><text class="cell" x="125" y="306" text-anchor="middle">t</text>
+  <rect class="k" x="20"  y="318" width="70" height="34"/><text class="cell" x="55"  y="340" text-anchor="middle">2</text>
+  <rect class="c" x="90"  y="318" width="70" height="34"/><text class="cell" x="125" y="340" text-anchor="middle">u</text>
+  <rect class="g" x="20"  y="352" width="70" height="34"/><text class="drop" x="55"  y="374" text-anchor="middle">4</text>
+  <rect class="g" x="90"  y="352" width="70" height="34"/><text class="drop" x="125" y="374" text-anchor="middle">v</text>
+
+  <!-- arrow + call -->
+  <text class="code" x="285" y="185" text-anchor="middle">left_join(x, y)</text>
+  <line x1="185" y1="205" x2="375" y2="205" stroke="#a69362" stroke-width="3"/>
+  <path d="M 375 197 L 391 205 L 375 213 Z" fill="#a69362"/>
+
+  <!-- result table -->
+  <rect class="h" x="410" y="90" width="70" height="34"/><text class="hdr" x="445" y="112" text-anchor="middle">key</text>
+  <rect class="h" x="480" y="90" width="70" height="34"/><text class="hdr" x="515" y="112" text-anchor="middle">val_x</text>
+  <rect class="h" x="550" y="90" width="70" height="34"/><text class="hdr" x="585" y="112" text-anchor="middle">val_y</text>
+  <rect class="k" x="410" y="124" width="70" height="34"/><text class="cell" x="445" y="146" text-anchor="middle">1</text>
+  <rect class="c" x="480" y="124" width="70" height="34"/><text class="cell" x="515" y="146" text-anchor="middle">a</text>
+  <rect class="c" x="550" y="124" width="70" height="34"/><text class="cell" x="585" y="146" text-anchor="middle">t</text>
+  <rect class="k" x="410" y="158" width="70" height="34"/><text class="cell" x="445" y="180" text-anchor="middle">2</text>
+  <rect class="c" x="480" y="158" width="70" height="34"/><text class="cell" x="515" y="180" text-anchor="middle">b</text>
+  <rect class="c" x="550" y="158" width="70" height="34"/><text class="cell" x="585" y="180" text-anchor="middle">u</text>
+  <rect class="k" x="410" y="192" width="70" height="34"/><text class="cell" x="445" y="214" text-anchor="middle">3</text>
+  <rect class="c" x="480" y="192" width="70" height="34"/><text class="cell" x="515" y="214" text-anchor="middle">c</text>
+  <rect class="y" x="550" y="192" width="70" height="34"/><text class="na" x="585" y="214" text-anchor="middle">NA</text>
+
+  <!-- notes -->
+  <text class="note" x="515" y="260" text-anchor="middle">all rows of x kept · no match for key 3 → NA</text>
+  <text class="note" x="300" y="373" text-anchor="start">← key 4 has no match in x: dropped</text>
+</svg>

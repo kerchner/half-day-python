@@ -1,0 +1,26 @@
+project:
+  type: default
+  output-dir: docs
+  render:
+    - index.qmd
+
+format:
+  revealjs:
+    theme: [default, custom.scss]
+    slide-number: c/t
+    show-slide-number: all
+    hash-type: number
+    transition: slide
+    background-transition: fade
+    controls: true
+    progress: true
+    history: true
+    center: false
+    preview-links: auto
+    code-line-numbers: false
+    highlight-style: a11y
+    footer: "Python in Half a Day · [GW Libraries & Academic Innovation](https://library.gwu.edu/) · [kerchner.github.io/half-day-python](https://kerchner.github.io/half-day-python)"
+    chalkboard: true
+    width: 1100
+    margin: 0.05
+    link-external-newwindow: true
