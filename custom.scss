@@ -310,6 +310,14 @@ $code-block-border-color: $py-blue;
     .slide-number {
       color: $py-yellow-light;
     }
+    // The menu/chalkboard/notes-canvas icons are SVG background-images with
+    // the link color ($py-blue) baked in — the same #306998 as the dark slide
+    // backgrounds, so they disappear entirely; force them to white
+    .slide-menu-button .fa-bars::before,
+    .slide-chalkboard-buttons .fa-easel2::before,
+    .slide-chalkboard-buttons .fa-brush::before {
+      filter: brightness(0) invert(1);
+    }
   }
 
   // Smaller text helper

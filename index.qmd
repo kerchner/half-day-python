@@ -126,13 +126,13 @@ Both are free, open-source, and excellent for data work — they just have diffe
 ## Where You Write Python {.smaller}
 
 | Tool | Type | What it is |
-|-----|----| ----------------------|
-| **Google Colab** | In browser | Jupyter notebooks hosted by Google — nothing to install; free tier (needs a Google account) |
+|----|----| -----------------------|
+| **Google Colab** | In browser | Jupyter notebooks hosted by Google — nothing to install; free tier (GW folks can get Colab Pro) |
 | **Jupyter Notebook / JupyterLab** | In browser, runs locally | The classic notebook interface: text + code + output in one document |
 | **VS Code** | Desktop app | Popular, free general-purpose editor — excellent Python & notebook support via extensions |
 | **Positron** | Desktop app | Posit's free **next-generation** data-science IDE for Python *and* R, built on VS Code |
 | **Spyder** | Desktop app | Free, scientific IDE that feels like RStudio / MATLAB; ships with Anaconda |
-| **PyCharm** | Desktop app | Full-featured professional Python IDE (free Community edition) |
+| **PyCharm** | Desktop app | Full-featured professional Python IDE (free Community edition, but get the educational license for PyCharm Professional) |
 
 ::: {.tip-box}
 🖥️ Today we'll use **Google Colab** — open the notebook link, sign in, and you're coding.
@@ -153,6 +153,10 @@ Both are free, open-source, and excellent for data work — they just have diffe
 🎯 We're using **Google Colab** today, but you may want to try **Positron** or **VS Code** later.
 :::
 
+## Where Python runs when you use a Python notebook
+
+![](images/where-python-runs.png){fig-align="center" fig-alt="Two diagrams comparing where Python runs: a notebook at colab.research.google.com connected to a Python kernel on Google's server, and a notebook at localhost:8888 connected to a Python kernel from Anaconda running on your laptop"}
+
 ## Working in a Notebook {.smaller}
 
 A notebook is a sequence of **cells**: some hold *text* (Markdown), some hold *code*.
@@ -170,10 +174,16 @@ A notebook is a sequence of **cells**: some hold *text* (Markdown), some hold *c
 - You *will* get errors. That's fine — fix the cell and run it again
 
 ::: {.tip-box}
-🔁 Something acting weird? **Runtime → Restart** and run the cells top-to-bottom.
+🔁 Need a fresh start? **Runtime → Restart** and run the cells top-to-bottom.
 :::
 
 ## The Python Language {background-color="#306998" .divider}
+
+## The notebook for today
+
+* Go to https://github.com/kerchner/half-day-python
+* 
+
 
 ## Variables and Types
 
@@ -304,10 +314,10 @@ workshop.keys();  workshop.values();  workshop.items()
 ## Values, Lists, and DataFrames
 
 ```python
-year   = 1959                                          # a single value
-songs  = ["So What", "Blue in Green", "All Blues"]    # a list: many values
+year   = 1959                                               # a single value
+songs  = ["So What", "Blue in Green", "All Blues"]          # a list: many values
 tracks = [1, 3, 4]
-album  = pd.DataFrame({"song": songs, "track": tracks}) # a table
+album  = pandas.DataFrame({"song": songs, "track": tracks}) # a table
 ```
 
 :::: {.columns .evolution}
@@ -354,6 +364,8 @@ album  = pd.DataFrame({"song": songs, "track": tracks}) # a table
 *columns are equal-length Series* 
 :::
 
+\* `DataFrame` is a `pandas`/`polars` class, so you need to import `pandas` or `polars`
+
 ::::
 
 ## Comments and Indentation
@@ -369,11 +381,11 @@ print("done")                 # not indented: OUTSIDE the loop
 ```
 
 - **Indentation is not optional** in Python — it's how Python knows which lines belong to a loop, an `if`, or a function
-- Use **4 spaces** per level (notebooks and editors do this for you after a `:`)
+- Use **4 spaces** per level (notebooks/editors do this for you after `:`)
 - Every `for`, `while`, `if`, `else`, and `def` line ends with a **`:`**
 
 ::: {.tip-box}
-💬 Comment the *why*, not the *what* — your future self is your most important collaborator.
+💬 Comment the *why*, not the *what*, for your future self or other collaborators.
 :::
 
 ## Iteration: `for` Loops
@@ -393,13 +405,13 @@ for key, value in workshop.items():
     print(key, "=", value)
 
 # Loop over a range of numbers: 0, 1, 2, 3, 4
-for i in range(5):
+for i in range(5):  # range(2, 5) would yield 2, 3, 4
     print(i)
 ```
 
 ## Iteration: `while` Loops
 
-Repeat **while** a condition is true — when you don't have a list to walk through:
+Repeat **while** a condition is True:
 
 ```python
 import random
@@ -418,7 +430,7 @@ while True:
 ```
 
 ::: {.tip-box}
-🎲 Random numbers differ every run. For a *repeatable* sequence, call `random.seed(42)` first.
+🎲 Random numbers differ every run. For a *repeatable* sequence, call `random.seed(42)` first (choose any number you like).
 :::
 
 ## Conditionals: `if` / `elif` / `else`
@@ -499,7 +511,7 @@ import pandas as pd
 ```
 
 - **Install once** per computer (or per environment); **import every session**
-- Over 500,000 packages on **PyPI** ([pypi.org](https://pypi.org)) — the Python Package Index
+- Over 500K packages on **PyPI** ([pypi.org](https://pypi.org)), the Python Package Index
 - Colab: most data-science packages are already installed. Missing one? `!pip install name` in a cell
 
 ## Getting Help
@@ -514,10 +526,9 @@ surveys_df.<TAB>            # Tab-completion lists what's available
 ```
 
 - **Read the error message** — the *last line* usually says exactly what went wrong
-- Official docs: [docs.python.org](https://docs.python.org/3/) · [pandas.pydata.org](https://pandas.pydata.org/docs/)
-- Search the error text — Stack Overflow has almost certainly seen it before
-- Ask an AI assistant to *explain* the error — then verify the fix yourself
-
+- Official docs: [docs.python.org](https://docs.python.org/3/)
+- Search the error text, Stack Overflow has almost certainly seen it before
+- Ask an AI assistant to *explain* the error, then verify the fix yourself
 
 ## Notebook or Script? {.smaller}
 
@@ -528,11 +539,13 @@ Two ways to write your analysis — both are real, reproducible code:
 | **Notebook** (`.ipynb`) | Narrative + code + results in one shareable document; great for exploring, teaching, and reports; renders on GitHub | Easy to run cells out of order and end up with hidden state; awkward for version control (`git`); not ideal for automation |
 | **Script** (`.py`) | Simple — just code; runs top-to-bottom with `python analysis.py`; easy to reuse (`import`), automate, and run unattended on an **HPC cluster** | Explaining *why* is limited to `#` comments; results go to **files** (CSV, PNG, …) rather than appearing inline |
 
+As a project grows, its code moves into scripts: **serious software** — larger programs, packages, web apps — is built as **multiple `.py` files** that `import` from one another. Every Python library you'll ever `import` is written this way.
+
 ::: {.tip-box}
-🎯 Rule of thumb: **notebooks** to explore and to tell the *story*; **scripts** for reusable building blocks and automation. Many projects use both — and **Quarto** lets a notebook become a polished report.
+🎯 Rule of thumb: **notebooks** to explore and to tell the *story*; **scripts** for reusable building blocks, automation, and multi-file software. Many projects use both — and **Quarto** lets a notebook become a polished report.
 :::
 
-## Recommended Best Practices
+## Recommended Best Practices {.smaller}
 
 - **One folder per project** — keep data, notebooks, and outputs together; use *relative* paths (`data/surveys.csv`)
 - **Restart and run all** before you share a notebook — proves it's reproducible top-to-bottom
@@ -540,7 +553,7 @@ Two ways to write your analysis — both are real, reproducible code:
 - **Never edit raw data by hand** — read it in, transform with code, write results to a *new* file
 - Use **descriptive names**: `surveys_2024`, not `df2`
 - **One environment per project** (`venv`, `conda`) — so package versions don't collide
-- Learn **git** early — even just to keep a history of your own work
+- **Learn `git` early**, even just to keep a history of your own work, but also to collaborate
 
 ## Keep Learning: A More Complete Python Setup {.smaller}
 
@@ -549,8 +562,8 @@ These should be on your to-do list:
 1. **Install Python on your own machine** — [Miniforge](https://conda-forge.org/download/) or [Anaconda](https://www.anaconda.com/download) (Python + package manager + Jupyter) or [python.org](https://www.python.org/downloads/)
 2. **Pick an editor** — try [Positron](https://positron.posit.co/) (data-science IDE for Python & R) or [VS Code](https://code.visualstudio.com/) with the Python + Jupyter extensions
 3. **Learn environments** — one `conda env` or `venv` per project keeps package versions from colliding
-4. Learn **`git` / GitHub** and start using it with your Python projects
-5. Learn the **`bash` "shell"** and use it in the Terminal
+4. **Learn `git` / GitHub** and start using it with your Python projects
+5. **Learn the `bash` "shell"** and use it in the Terminal
 6. Keep going: the [official tutorial](https://docs.python.org/3/tutorial/), [pandas getting-started guide](https://pandas.pydata.org/docs/getting_started/), and *Python for Data Analysis* (free online: [wesmckinney.com/book](https://wesmckinney.com/book/))
 
 ## If You Need to Run Python on HPC*
@@ -577,18 +590,18 @@ Start at [it.gwu.edu/hpc](https://it.gwu.edu/hpc) and submit an access request
 
 
 **Dan Kerchner** | George Washington University Libraries   
-[kerchner@gwu.edu](mailto:kerchner@gwu.edu)
+[kerchner@gwu.edu](mailto:kerchner@gwu.edu) | [calendly.com/kerchner](https://calendly.com/kerchner)
 
 Appointments:
 
 |  |  |   |
 |---|---|----------------|
-| me | Python, R, etc. | [calendly.com/kerchner](https://calendly.com/kerchner)  |
-| Academic Commons Data Consultants | Python, R, Statistics, SAS, Excel, etc. | [go.gwu.edu/DataConsulting](https://go.gwu.edu/DataConsulting) |
-| LAI Software developers | Python, web apps, HTML, etc. | [calendly.com/gwul-coding](https://calendly.com/gwul-coding) |
+| Academic Commons Data Consultants | Python, R, Statistics, SAS, Excel, STATA, etc. | [go.gwu.edu/DataConsulting](https://go.gwu.edu/DataConsulting) |
+| LAI Software developers | Python, R, HTML/JS/CSS | [calendly.com/gwul-coding](https://calendly.com/gwul-coding) |
 
-: {tbl-colwidths="[30,35,35]"}
+: {tbl-colwidths="[31,37,32]"}
 
+
+Workshops: [library.gwu.edu/events](https://library.gwu.edu/events)   
+Notebooks: [github.com/kerchner/half-day-python](https://github.com/kerchner/half-day-python/) (_notebooks_ folder)  
 These slides: [kerchner.github.io/half-day-python](https://kerchner.github.io/half-day-python)  
-Notebooks: [github.com/kerchner/half-day-python](https://github.com/kerchner/half-day-python/) in the "notebooks" folder  
-Workshops: [library.gwu.edu/events](https://library.gwu.edu/events)

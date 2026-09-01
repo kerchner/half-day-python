@@ -545,9 +545,9 @@
 <h2>Where You Write Python</h2>
 <table class="caption-top">
 <colgroup>
-<col style="width: 16%">
 <col style="width: 12%">
-<col style="width: 70%">
+<col style="width: 12%">
+<col style="width: 74%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -560,7 +560,7 @@
 <tr class="odd">
 <td><strong>Google Colab</strong></td>
 <td>In browser</td>
-<td>Jupyter notebooks hosted by Google — nothing to install; free tier (needs a Google account)</td>
+<td>Jupyter notebooks hosted by Google — nothing to install; free tier (GW folks can get Colab Pro)</td>
 </tr>
 <tr class="even">
 <td><strong>Jupyter Notebook / JupyterLab</strong></td>
@@ -585,7 +585,7 @@
 <tr class="even">
 <td><strong>PyCharm</strong></td>
 <td>Desktop app</td>
-<td>Full-featured professional Python IDE (free Community edition)</td>
+<td>Full-featured professional Python IDE (free Community edition, but get the educational license for PyCharm Professional)</td>
 </tr>
 </tbody>
 </table>
@@ -640,6 +640,10 @@
 <p>🎯 We’re using <strong>Google Colab</strong> today, but you may want to try <strong>Positron</strong> or <strong>VS Code</strong> later.</p>
 </div>
 </section>
+<section class="slide level2">
+<h2>Where Python runs when you use a Python notebook</h2>
+
+<img data-src="images/where-python-runs.png" class="quarto-figure quarto-figure-center r-stretch" alt="Two diagrams comparing where Python runs: a notebook at colab.research.google.com connected to a Python kernel on Google's server, and a notebook at localhost:8888 connected to a Python kernel from Anaconda running on your laptop"></section>
 <section class="slide level2 smaller">
 <h2>Working in a Notebook</h2>
 <p>A notebook is a sequence of <strong>cells</strong>: some hold <em>text</em> (Markdown), some hold <em>code</em>.</p>
@@ -680,11 +684,18 @@
 <li>You <em>will</em> get errors. That’s fine — fix the cell and run it again</li>
 </ul>
 <div class="tip-box">
-<p>🔁 Something acting weird? <strong>Runtime → Restart</strong> and run the cells top-to-bottom.</p>
+<p>🔁 Need a fresh start? <strong>Runtime → Restart</strong> and run the cells top-to-bottom.</p>
 </div>
 </section>
 <section class="slide level2 divider" data-background-color="#306998">
 <h2>The Python Language</h2>
+</section>
+<section class="slide level2">
+<h2>The notebook for today</h2>
+<ul>
+<li>Go to https://github.com/kerchner/half-day-python</li>
+<li></li>
+</ul>
 </section>
 <section class="slide level2">
 <h2>Variables and Types</h2>
@@ -814,10 +825,10 @@
 </section>
 <section class="slide level2">
 <h2>Values, Lists, and DataFrames</h2>
-<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="" aria-hidden="true" tabindex="-1"></a>year   <span class="op">=</span> <span class="dv">1959</span>                                          <span class="co"># a single value</span></span>
-<span id="cb7-2"><a href="" aria-hidden="true" tabindex="-1"></a>songs  <span class="op">=</span> [<span class="st">"So What"</span>, <span class="st">"Blue in Green"</span>, <span class="st">"All Blues"</span>]    <span class="co"># a list: many values</span></span>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="" aria-hidden="true" tabindex="-1"></a>year   <span class="op">=</span> <span class="dv">1959</span>                                               <span class="co"># a single value</span></span>
+<span id="cb7-2"><a href="" aria-hidden="true" tabindex="-1"></a>songs  <span class="op">=</span> [<span class="st">"So What"</span>, <span class="st">"Blue in Green"</span>, <span class="st">"All Blues"</span>]          <span class="co"># a list: many values</span></span>
 <span id="cb7-3"><a href="" aria-hidden="true" tabindex="-1"></a>tracks <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">4</span>]</span>
-<span id="cb7-4"><a href="" aria-hidden="true" tabindex="-1"></a>album  <span class="op">=</span> pd.DataFrame({<span class="st">"song"</span>: songs, <span class="st">"track"</span>: tracks}) <span class="co"># a table</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-4"><a href="" aria-hidden="true" tabindex="-1"></a>album  <span class="op">=</span> pandas.DataFrame({<span class="st">"song"</span>: songs, <span class="st">"track"</span>: tracks}) <span class="co"># a table</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="columns evolution">
 <div class="column" style="width:18%;">
 <p><strong>Value</strong> · 1 × 1</p>
@@ -884,7 +895,8 @@
 </tbody>
 </table>
 <p><em>columns are equal-length Series</em></p>
-</div></div>
+</div><p>* <code>DataFrame</code> is a <code>pandas</code>/<code>polars</code> class, so you need to import <code>pandas</code> or <code>polars</code></p>
+</div>
 </section>
 <section class="slide level2">
 <h2>Comments and Indentation</h2>
@@ -897,11 +909,11 @@
 <span id="cb8-7"><a href="" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"done"</span>)                 <span class="co"># not indented: OUTSIDE the loop</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li><strong>Indentation is not optional</strong> in Python — it’s how Python knows which lines belong to a loop, an <code>if</code>, or a function</li>
-<li>Use <strong>4 spaces</strong> per level (notebooks and editors do this for you after a <code>:</code>)</li>
+<li>Use <strong>4 spaces</strong> per level (notebooks/editors do this for you after <code>:</code>)</li>
 <li>Every <code>for</code>, <code>while</code>, <code>if</code>, <code>else</code>, and <code>def</code> line ends with a <strong><code>:</code></strong></li>
 </ul>
 <div class="tip-box">
-<p>💬 Comment the <em>why</em>, not the <em>what</em> — your future self is your most important collaborator.</p>
+<p>💬 Comment the <em>why</em>, not the <em>what</em>, for your future self or other collaborators.</p>
 </div>
 </section>
 <section class="slide level2">
@@ -919,12 +931,12 @@
 <span id="cb9-10"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(key, <span class="st">"="</span>, value)</span>
 <span id="cb9-11"><a href="" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-12"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co"># Loop over a range of numbers: 0, 1, 2, 3, 4</span></span>
-<span id="cb9-13"><a href="" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>):</span>
+<span id="cb9-13"><a href="" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>):  <span class="co"># range(2, 5) would yield 2, 3, 4</span></span>
 <span id="cb9-14"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(i)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section class="slide level2">
 <h2>Iteration: <code>while</code> Loops</h2>
-<p>Repeat <strong>while</strong> a condition is true — when you don’t have a list to walk through:</p>
+<p>Repeat <strong>while</strong> a condition is True:</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
 <span id="cb10-2"><a href="" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-3"><a href="" aria-hidden="true" tabindex="-1"></a>total <span class="op">=</span> <span class="dv">0</span></span>
@@ -939,7 +951,7 @@
 <span id="cb10-12"><a href="" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Lucky 7!"</span>)</span>
 <span id="cb10-13"><a href="" aria-hidden="true" tabindex="-1"></a>        <span class="cf">break</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="tip-box">
-<p>🎲 Random numbers differ every run. For a <em>repeatable</em> sequence, call <code>random.seed(42)</code> first.</p>
+<p>🎲 Random numbers differ every run. For a <em>repeatable</em> sequence, call <code>random.seed(42)</code> first (choose any number you like).</p>
 </div>
 </section>
 <section class="slide level2">
@@ -1009,7 +1021,7 @@
 <span id="cb15-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li><strong>Install once</strong> per computer (or per environment); <strong>import every session</strong></li>
-<li>Over 500,000 packages on <strong>PyPI</strong> (<a href="https://pypi.org">pypi.org</a>) — the Python Package Index</li>
+<li>Over 500K packages on <strong>PyPI</strong> (<a href="https://pypi.org">pypi.org</a>), the Python Package Index</li>
 <li>Colab: most data-science packages are already installed. Missing one? <code>!pip install name</code> in a cell</li>
 </ul>
 </section>
@@ -1023,9 +1035,9 @@
 <span id="cb16-6"><a href="" aria-hidden="true" tabindex="-1"></a>surveys_df.<span class="op">&lt;</span>TAB<span class="op">&gt;</span>            <span class="co"># Tab-completion lists what's available</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li><strong>Read the error message</strong> — the <em>last line</em> usually says exactly what went wrong</li>
-<li>Official docs: <a href="https://docs.python.org/3/">docs.python.org</a> · <a href="https://pandas.pydata.org/docs/">pandas.pydata.org</a></li>
-<li>Search the error text — Stack Overflow has almost certainly seen it before</li>
-<li>Ask an AI assistant to <em>explain</em> the error — then verify the fix yourself</li>
+<li>Official docs: <a href="https://docs.python.org/3/">docs.python.org</a></li>
+<li>Search the error text, Stack Overflow has almost certainly seen it before</li>
+<li>Ask an AI assistant to <em>explain</em> the error, then verify the fix yourself</li>
 </ul>
 </section>
 <section class="slide level2 smaller">
@@ -1057,11 +1069,12 @@
 </tr>
 </tbody>
 </table>
+<p>As a project grows, its code moves into scripts: <strong>serious software</strong> — larger programs, packages, web apps — is built as <strong>multiple <code>.py</code> files</strong> that <code>import</code> from one another. Every Python library you’ll ever <code>import</code> is written this way.</p>
 <div class="tip-box">
-<p>🎯 Rule of thumb: <strong>notebooks</strong> to explore and to tell the <em>story</em>; <strong>scripts</strong> for reusable building blocks and automation. Many projects use both — and <strong>Quarto</strong> lets a notebook become a polished report.</p>
+<p>🎯 Rule of thumb: <strong>notebooks</strong> to explore and to tell the <em>story</em>; <strong>scripts</strong> for reusable building blocks, automation, and multi-file software. Many projects use both — and <strong>Quarto</strong> lets a notebook become a polished report.</p>
 </div>
 </section>
-<section class="slide level2">
+<section class="slide level2 smaller">
 <h2>Recommended Best Practices</h2>
 <ul>
 <li><strong>One folder per project</strong> — keep data, notebooks, and outputs together; use <em>relative</em> paths (<code>data/surveys.csv</code>)</li>
@@ -1070,7 +1083,7 @@
 <li><strong>Never edit raw data by hand</strong> — read it in, transform with code, write results to a <em>new</em> file</li>
 <li>Use <strong>descriptive names</strong>: <code>surveys_2024</code>, not <code>df2</code></li>
 <li><strong>One environment per project</strong> (<code>venv</code>, <code>conda</code>) — so package versions don’t collide</li>
-<li>Learn <strong>git</strong> early — even just to keep a history of your own work</li>
+<li><strong>Learn <code>git</code> early</strong>, even just to keep a history of your own work, but also to collaborate</li>
 </ul>
 </section>
 <section class="slide level2 smaller">
@@ -1080,8 +1093,8 @@
 <li><strong>Install Python on your own machine</strong> — <a href="https://conda-forge.org/download/">Miniforge</a> or <a href="https://www.anaconda.com/download">Anaconda</a> (Python + package manager + Jupyter) or <a href="https://www.python.org/downloads/">python.org</a></li>
 <li><strong>Pick an editor</strong> — try <a href="https://positron.posit.co/">Positron</a> (data-science IDE for Python &amp; R) or <a href="https://code.visualstudio.com/">VS Code</a> with the Python + Jupyter extensions</li>
 <li><strong>Learn environments</strong> — one <code>conda env</code> or <code>venv</code> per project keeps package versions from colliding</li>
-<li>Learn <strong><code>git</code> / GitHub</strong> and start using it with your Python projects</li>
-<li>Learn the <strong><code>bash</code> “shell”</strong> and use it in the Terminal</li>
+<li><strong>Learn <code>git</code> / GitHub</strong> and start using it with your Python projects</li>
+<li><strong>Learn the <code>bash</code> “shell”</strong> and use it in the Terminal</li>
 <li>Keep going: the <a href="https://docs.python.org/3/tutorial/">official tutorial</a>, <a href="https://pandas.pydata.org/docs/getting_started/">pandas getting-started guide</a>, and <em>Python for Data Analysis</em> (free online: <a href="https://wesmckinney.com/book/">wesmckinney.com/book</a>)</li>
 </ol>
 </section>
@@ -1107,35 +1120,30 @@ Start at <a href="https://it.gwu.edu/hpc">it.gwu.edu/hpc</a> and submit an acces
 <section class="slide level2 divider" data-background-color="#306998">
 <h2>Thanks! 🐍</h2>
 <p><strong>Dan Kerchner</strong> | George Washington University Libraries<br>
-<a href="mailto:kerchner@gwu.edu">kerchner@gwu.edu</a></p>
+<a href="mailto:kerchner@gwu.edu">kerchner@gwu.edu</a> | <a href="https://calendly.com/kerchner">calendly.com/kerchner</a></p>
 <p>Appointments:</p>
-<table class="caption-top" style="width:100%;">
+<table class="caption-top">
 <colgroup>
-<col style="width: 30%">
-<col style="width: 35%">
-<col style="width: 35%">
+<col style="width: 31%">
+<col style="width: 37%">
+<col style="width: 32%">
 </colgroup>
 <tbody>
 <tr class="odd">
-<td>me</td>
-<td>Python, R, etc.</td>
-<td><a href="https://calendly.com/kerchner">calendly.com/kerchner</a></td>
-</tr>
-<tr class="even">
 <td>Academic Commons Data Consultants</td>
-<td>Python, R, Statistics, SAS, Excel, etc.</td>
+<td>Python, R, Statistics, SAS, Excel, STATA, etc.</td>
 <td><a href="https://go.gwu.edu/DataConsulting">go.gwu.edu/DataConsulting</a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>LAI Software developers</td>
-<td>Python, web apps, HTML, etc.</td>
+<td>Python, R, HTML/JS/CSS</td>
 <td><a href="https://calendly.com/gwul-coding">calendly.com/gwul-coding</a></td>
 </tr>
 </tbody>
 </table>
-<p>These slides: <a href="https://kerchner.github.io/half-day-python">kerchner.github.io/half-day-python</a><br>
-Notebooks: <a href="https://github.com/kerchner/half-day-python/">github.com/kerchner/half-day-python</a> in the “notebooks” folder<br>
-Workshops: <a href="https://library.gwu.edu/events">library.gwu.edu/events</a></p>
+<p>Workshops: <a href="https://library.gwu.edu/events">library.gwu.edu/events</a><br>
+Notebooks: <a href="https://github.com/kerchner/half-day-python/">github.com/kerchner/half-day-python</a> (<em>notebooks</em> folder)<br>
+These slides: <a href="https://kerchner.github.io/half-day-python">kerchner.github.io/half-day-python</a></p>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 <p>Python in Half a Day · <a href="https://library.gwu.edu/">GW Libraries &amp; Academic Innovation</a> · <a href="https://kerchner.github.io/half-day-python">kerchner.github.io/half-day-python</a></p>
