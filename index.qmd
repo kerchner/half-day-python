@@ -586,7 +586,7 @@ Start at [it.gwu.edu/hpc](https://it.gwu.edu/hpc) and submit an access request
 😎 These very slides are a Quarto presentation — written in plain text, styled with a theme, published free on GitHub Pages.
 :::
 
-## Thanks! 🐍 {background-color="#306998" .divider}
+## Thanks! 🐍 {background-color="#306998" .divider .smaller}
 
 
 **Dan Kerchner** | George Washington University Libraries   
@@ -605,3 +605,5 @@ Appointments:
 Workshops: [library.gwu.edu/events](https://library.gwu.edu/events)   
 Notebooks: [github.com/kerchner/half-day-python](https://github.com/kerchner/half-day-python/) (_notebooks_ folder)  
 These slides: [kerchner.github.io/half-day-python](https://kerchner.github.io/half-day-python)  
+
+Also! **GW Coders** | Slack, bi-weekly events, and networking [gwcoders.github.io](https://gwcoders.github.io/)
