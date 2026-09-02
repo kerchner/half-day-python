@@ -14,7 +14,7 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-SRC_DIR = ROOT / "notebooks_completed"
+SRC_DIR = ROOT / "notebooks"
 OUT_DIR = ROOT / "notebooks"
 
 
