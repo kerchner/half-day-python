@@ -11,9 +11,10 @@ workshop offered by [George Washington University Libraries and Academic Innovat
   go. Open them in [Google Colab](https://colab.research.google.com) or Jupyter.
   - **[Part 1 Notebook](https://colab.research.google.com/github/kerchner/half-day-python/blob/main/notebooks/Python_Workshop_Part_1.ipynb)** - the Python language: variables,
     lists, dictionaries, loops, conditionals, functions, importing libraries
-  - **[Part 2 Notebook](https://colab.research.google.com/github/kerchner/half-day-python/blob/main/notebooks/Python_Workshop_Part_2.ipynb) — data with `pandas`: loading,
-    exploring, subsetting, summarizing, merging, and plotting. _**This needs an update -- consider learning to use [Polars](https://pola.rs/) instead of Pandas.
-   - **[Special Bonus](https://colab.research.google.com/github/kerchner/half-day-python/blob/main/notebooks/Special_Bonus.ipynb) - Using LLMs in Python!
+  - **[Part 2 Notebook](https://colab.research.google.com/github/kerchner/half-day-python/blob/main/notebooks/Python_Workshop_Part_2.ipynb)** — data with `pandas`: loading,
+    exploring, subsetting, summarizing, merging, and plotting. _**This needs an update_ -- consider learning to use [Polars](https://pola.rs/) instead of Pandas.
+  - The "filled out" Part 1 and Part 2 notebooks
+  - **[Special Bonus](https://colab.research.google.com/github/kerchner/half-day-python/blob/main/notebooks/Special_Bonus.ipynb)** - Using LLMs in Python!  The "filled out" notebook is on the way.
 - `jupyter notebooks/` — the instructor ("filled out") versions, with all the code
 - `data/` — local copies of the datasets used in Part 2 (`surveys.csv`, `species.csv`),
   a subset of the [Portal Project Teaching Database](https://figshare.com/articles/Portal_Project_Teaching_Database/1314459)
