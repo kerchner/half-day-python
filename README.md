@@ -8,7 +8,7 @@ workshop offered by [George Washington University Libraries and Academic Innovat
 ### Notebooks from the workshop:
 - `notebooks/` — the **student** versions of the workshop notebooks: all of the
   explanatory text, with the code cells left **empty** for you to fill in as we
-  go. Open them in [Google Colab](https://colab.research.google.com) or Jupyter.
+  go, as well as the "filled out" versions. Open them in [Google Colab](https://colab.research.google.com) or Jupyter.
   - **[Part 1 Notebook](https://colab.research.google.com/github/kerchner/half-day-python/blob/main/notebooks/Python_Workshop_Part_1.ipynb)** - the Python language: variables,
     lists, dictionaries, loops, conditionals, functions, importing libraries
   - **[Part 2 Notebook](https://colab.research.google.com/github/kerchner/half-day-python/blob/main/notebooks/Python_Workshop_Part_2.ipynb)** — data with `pandas`: loading,
